@@ -1,6 +1,6 @@
 using System;
 
-public class Main{
+public class Program{
 
     public static void Main() {
         int[]? arreglo = null;
