@@ -1,4 +1,4 @@
-from python.arreglos import (
+from arreglos import (
     buscar_lineal,
     cambiar_impares_por_cero,
     crear_arreglo,
@@ -61,4 +61,68 @@ def menu_arreglos(arreglo, creado):
         else:
             print("Opción no válida.")
 
-    return arreglo,
+    return arreglo, creado
+
+def menu_matrices(matriz, creada):
+    volver = False
+    while not volver:
+        print()
+        print("Gestión de Matrices")
+        print("1. Crear matriz 3x3 (1 a 9)")
+        print("2. Sumar elementos")
+        print("3. Intercambiar primera y última fila")
+        print("0. Volver")
+        opcion = input("Opción: ").strip()
+
+        if opcion == "1":
+            matriz = crear_matriz()
+            creada = True
+            print("Matriz creada.")
+            mostrar_como_tabla(matriz)
+            recorrer_por_columnas(matriz)
+        elif opcion == "2":
+            if not creada:
+                print("Primero debe crear la matriz.")
+            else:
+                print(f"Suma de elementos: {sumar_elementos(matriz)}")
+        elif opcion == "3":
+            if not creada:
+                print("Primero debe crear la matriz.")
+            else:
+                intercambiar_primera_y_ultima_fila(matriz)
+                print("Primera y última fila intercambiadas.")
+                mostrar_como_tabla(matriz)
+        elif opcion == "0":
+            volver = True
+        else:
+            print("Opción no válida.")
+
+    return matriz, creada
+
+
+def main():
+    arreglo = None
+    matriz = None
+    arreglo_creado = False
+    matriz_creada = False
+    salir = False
+
+    while not salir:
+        print()
+        print("1. Gestión de Arreglos")
+        print("2. Gestión de Matrices")
+        print("0. Salir")
+        opcion = input("Opción: ").strip()
+
+        if opcion == "1":
+            arreglo, arreglo_creado = menu_arreglos(arreglo, arreglo_creado)
+        elif opcion == "2":
+            matriz, matriz_creada = menu_matrices(matriz, matriz_creada)
+        elif opcion == "0":
+            salir = True
+        else:
+            print("Opción no válida.")
+
+
+if __name__ == "__main__":
+    main()
