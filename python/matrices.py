@@ -18,3 +18,25 @@ def mostrar_como_tabla(matriz):
             if j < len(matriz[i]) - 1:
                 linea += " "
         print(linea)
+
+
+def recorrer_por_columnas(matriz):
+    filas = len(matriz)
+    columnas = len(matriz[0])
+    for j in range(columnas):
+        for i in range(filas):
+            print(matriz[i][j])
+
+
+def sumar_elementos(matriz):
+    total = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            total += matriz[i][j]
+    return total
+
+
+def intercambiar_primera_y_ultima_fila(matriz):
+    primera = matriz[0]
+    matriz[0] = matriz[len(matriz) - 1]
+    matriz[len(matriz) - 1] = primera
